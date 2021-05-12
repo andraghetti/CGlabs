@@ -1,0 +1,13 @@
+
+ifeq ($(shell uname), Darwin)  # Mac OS X
+	LDLIBS = -framework OpenGL -framework GLUT
+else
+	LDLIBS = -lGL -lGLU -lglut -lGLEW
+endif
+
+default: $(BINS)
+.PHONY: default
+
+clean:
+	-rm -f $(BINS) *.o *~
+.PHONY: clean
